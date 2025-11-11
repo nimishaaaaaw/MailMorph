@@ -24,40 +24,40 @@ body {
 /* Logo */
 .top-left-icon {
   position: fixed;
-  top: 90px;
-  left: 70px;
-  z-index: 1000;
-  padding: 15px;
+  top: 45px;
+  left: 35px;
+  z-index: 500;
+  padding: 7.5px;
   display: block;
 }
 
 .top-left-icon img {
-  width: 260px;
-  height: 260px;
+  width: 130px;
+  height: 130px;
 }
 
 /* Title */
 h1 {
   position: absolute;
-  width: 233px;
-  height: 61px;
-  left: 380px;
-  top: 140px;
-  font-size: 80pt;
-  line-height: 70px;
+  width: 116.5px;
+  height: 30.5px;
+  left: 190px;
+  top: 70px;
+  font-size: 40pt;
+  line-height: 35px;
   color: #E81241;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .tagline {
   position: absolute;
-  width: 219px;
-  height: 28px;
-  left: 380px;
-  top: 280px;
+  width: 109.5px;
+  height: 14px;
+  left: 190px;
+  top: 140px;
   white-space: nowrap;
   font-style: italic;
-  font-size: 30pt;
+  font-size: 15pt;
   font-weight: 4;
   line-height: 24px;
   color: #E81241;
@@ -67,17 +67,17 @@ h1 {
 /* ORIGINAL MAIL BOX */
 .rectangle-1 {
   position: absolute;
-  width: 1000px;
-  height: 370px;
-  left: 1300px;
-  top: 145px;
+  width: 500px;
+  height: 185px;
+  left: 650px;
+  top: 72.5px;
   background: #F7CAC9;
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   resize: none;
   border: none;
-  padding: 20px;
-  font-size: 20px;
+  padding: 10px;
+  font-size: 10px;
   font-family: 'Amaranth', sans-serif;
   color: #333;
   outline: none;
@@ -91,17 +91,17 @@ h1 {
 /* REWRITTEN MAIL BOX */
 .rectangle-2 {
   position: absolute;
-  width: 1000px;
-  height: 370px;
-  left: 1300px;
-  top: 620px;
+  width: 500px;
+  height: 185px;
+  left: 650px;
+  top: 310px;
   background: #F7CAC9;
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   resize: none;
   border: none;
-  padding: 20px;
-  font-size: 20px;
+  padding: 10px;
+  font-size: 10px;
   font-family: 'Amaranth', sans-serif;
   color: #333;
   outline: none;
@@ -109,24 +109,24 @@ h1 {
 
 .rewritten-mail-title {
   position: absolute;
-  width: 202px;
-  height: 39px;
-  left: 1300px;
-  top: 550px;
+  width: 101px;
+  height: 19.5px;
+  left: 650px;
+  top: 275px;
   font-weight: 400;
-  font-size: 32px;
+  font-size: 16px;
   color: #F7CAC9;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .original-mail-title {
   position: absolute;
-  width: 180px;
-  height: 39px;
-  left: 1300px;
-  top: 75px;
+  width: 90px;
+  height: 19.5px;
+  left: 650px;
+  top: 37.5px;
   font-weight: 400;
-  font-size: 32px;
+  font-size: 16px;
   color: #F7CAC9;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -138,10 +138,10 @@ h1 {
 /* TONE DROPDOWN */
 .tone-button-group .rectangle-3 {
   position: absolute;
-  width: 200px;
-  height: 85px;
-  left: 85px;
-  top: 550px;
+  width: 100px;
+  height: 42.5px;
+  left: 42.5px;
+  top: 275px;
   background: #E81241;
   border-radius: 15px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -149,14 +149,14 @@ h1 {
 
 .tone-button-group .tone-label {
   position: absolute;
-  width: 180px;
-  height: 60px;
-  left: 95px;
-  top: 560px;
+  width: 95px;
+  height: 30px;
+  left: 47.5px;
+  top: 280px;
   background: transparent;
   border: none;
   font-family: 'Amaranth', sans-serif;
-  font-size: 40px;
+  font-size: 20px;
   color: #F7CAC9;
   text-align: center;
   appearance: none;
@@ -169,10 +169,10 @@ h1 {
 /* REWRITE BUTTON */
 .rewrite-button-group .rectangle-5 {
   position: absolute;
-  width: 200px;
-  height: 85px;
-  left: 352px;
-  top: 550px;
+  width: 100px;
+  height: 42.5px;
+  left: 176px;
+  top: 275px;
   background: #E81241;
   border-radius: 15px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -180,14 +180,14 @@ h1 {
 
 .rewrite-button-group .rewrite-label {
   position: absolute;
-  width: 180px;
-  height: 60px;
-  left: 362px;
-  top: 560px;
+  width: 90px;
+  height: 30px;
+  left: 181px;
+  top: 280px;
   background: transparent;
   border: none;
   font-family: 'Amaranth', sans-serif;
-  font-size: 40px;
+  font-size: 20px;
   color: #F7CAC9;
   cursor: pointer;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -197,10 +197,10 @@ h1 {
 /* COPY BUTTON */
 .copy-button-group .rectangle-4 {
   position: absolute;
-  width: 200px;
-  height: 85px;
-  left: 620px;
-  top: 550px;
+  width: 100px;
+  height: 42.5px;
+  left: 310px;
+  top: 275px;
   background: #E81241;
   border-radius: 15px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -208,14 +208,14 @@ h1 {
 
 .copy-button-group .copy-label {
   position: absolute;
-  width: 180px;
-  height: 60px;
-  left: 630px;
-  top: 560px;
+  width: 90px;
+  height: 30px;
+  left: 315px;
+  top: 280px;
   background: transparent;
   border: none;
   font-family: 'Amaranth', sans-serif;
-  font-size: 40px;
+  font-size: 20px;
   color: #F7CAC9;
   cursor: pointer;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
