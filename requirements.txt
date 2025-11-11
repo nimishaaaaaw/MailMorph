@@ -1,0 +1,7 @@
+Flask>=2.0
+python-dotenv
+openai
+flask-cors
+# Optional for rate limiting:
+# flask-limiter
+gunicorn

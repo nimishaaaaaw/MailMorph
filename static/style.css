@@ -1,0 +1,205 @@
+
+:root{
+  --bg: #f5f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #007bff;
+  --accent-2: #00c6ae;
+  --accent-contrast: #ffffff;
+  --shadow: 0 6px 18px rgba(16,24,40,0.08);
+  --radius: 12px;
+  --max-width: 820px;
+  --gap: 16px;
+  --mono: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+* { box-sizing: border-box; }
+html,body { height: 100%; margin: 0; font-family: var(--mono); background: var(--bg); color: #0f172a; }
+
+/* Center container */
+.container {
+  max-width: var(--max-width);
+  margin: 48px auto;
+  padding: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,252,0.98));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Responsive: single column on small screens */
+@media (max-width: 880px) {
+  .container { grid-template-columns: 1fr; padding: 20px; margin: 20px; }
+}
+
+/* Header */
+.container h1 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  letter-spacing: -0.2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-badge {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  border-radius:8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: var(--accent-contrast);
+  font-weight:700;
+  font-size:16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+/* Left column content */
+.left {
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+}
+
+/* Textarea */
+textarea#emailInput {
+  width:100%;
+  min-height: 260px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #e6edf3;
+  resize: vertical;
+  font-size: 15px;
+  line-height: 1.45;
+  background: #fff;
+  box-shadow: inset 0 1px 0 rgba(16,24,40,0.02);
+}
+
+/* Controls row (select + buttons) */
+.controls {
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  margin-top: 6px;
+}
+
+select#tone {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6edf3;
+  background: white;
+  font-size: 14px;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  box-shadow: 0 2px 6px rgba(11,20,50,0.06);
+}
+
+button:active { transform: translateY(1px); }
+
+#rewriteBtn {
+  background: linear-gradient(90deg, var(--accent), #0056d6);
+  color: white;
+}
+
+#copyBtn {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(0,123,255,0.14);
+}
+
+/* Right column: result card */
+.result-card {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 6px 16px rgba(12,18,42,0.04);
+  height: 100%;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  min-width: 260px;
+}
+
+.result-card h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #07133b;
+}
+
+pre#outputText {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px dashed #e6edf3;
+  min-height: 160px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #0b1220;
+  margin: 0;
+}
+
+/* small helper row at bottom of result */
+.result-footer {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 8px;
+  margin-top: auto;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.copy-small {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(11,20,50,0.03);
+}
+
+/* subtle footer / credits */
+.app-footer {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Loader state */
+.loader {
+  display:inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-top-color: rgba(255,255,255,0.9);
+  animation: spin 1s linear infinite;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* tiny responsiveness tweaks */
+@media (max-width: 520px) {
+  textarea#emailInput { min-height: 200px; }
+  .container { gap: 12px; padding: 18px; }
+  .result-card { padding: 12px; }
+}

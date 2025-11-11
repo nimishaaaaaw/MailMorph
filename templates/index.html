@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>MailMorph</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>MailMorph</h1>
+
+    <textarea id="emailInput" placeholder="Paste your email here..."></textarea>
+
+    <div class="controls">
+      <select id="tone">
+        <option value="formal">Formal</option>
+        <option value="polite">Polite</option>
+        <option value="concise">Concise</option>
+      </select>
+      <button id="rewriteBtn">Rewrite</button>
+      <button id="copyBtn">Copy</button>
+    </div>
+
+    <div id="result">
+      <h3>Rewritten Email</h3>
+      <pre id="outputText"></pre>
+    </div>
+  </div>
+
+  <script>
+    const rewriteBtn = document.getElementById('rewriteBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    rewriteBtn.onclick = async () => {
+      const email = document.getElementById('emailInput').value;
+      const tone = document.getElementById('tone').value;
+      const output = document.getElementById('outputText');
+      output.textContent = "Rewriting...";
+
+      try {
+        const resp = await fetch("/rewrite", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, tone })
+        });
+        const data = await resp.json();
+        if (data.rewritten_email) output.textContent = data.rewritten_email;
+        else output.textContent = "Error: " + (data.error || "Unknown");
+      } catch (e) {
+        output.textContent = "Network error: " + e.message;
+      }
+    };
+
+    copyBtn.onclick = () => {
+      const text = document.getElementById('outputText').innerText;
+      if (!text) return alert('Nothing to copy');
+      navigator.clipboard.writeText(text).then(()=>alert('Copied!'), ()=>alert('Copy failed'));
+    };
+  </script>
+</body>
+</html>
