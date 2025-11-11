@@ -1,82 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MailMorph</title>
-  <link rel="stylesheet" href="/static/style.css" />
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MailMorph</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
 
-<body>
-  <div class="container">
-    <h1>📨 MailMorph</h1>
-    <p class="tagline">Rewrite smarter. Sound sharper.</p>
+  <body>
+    <!-- Logo -->
+    <a href="/" class="top-left-icon">
+      <img src="/static/mail-icon.svg" alt="Website Logo">
+    </a>
 
-    <textarea id="emailInput" placeholder="✏ Paste your email here..."></textarea>
+    <!-- Title -->
+    <h1>MailMorph</h1>
+    <h2 class="tagline">Rewrite smarter</h2>
 
-    <div class="controls">
-      <select id="toneSelect">
+    <!-- Original Mail -->
+    <h2 class="original-mail-title">Original Mail</h2>
+    <textarea id="emailInput" class="rectangle-1" placeholder="Paste your email here..."></textarea>
+
+    <!-- Rewritten Mail -->
+    <h2 class="rewritten-mail-title">Rewritten Mail</h2>
+    <textarea id="outputText" class="rectangle-2" readonly placeholder="Rewritten version will appear here..."></textarea>
+
+    <!-- Tone Dropdown -->
+    <div class="tone-button-group">
+      <div class="rectangle-3"></div>
+      <select id="tone" class="tone-label">
         <option value="formal">Formal</option>
         <option value="polite">Polite</option>
         <option value="concise">Concise</option>
       </select>
-      <button id="rewriteBtn">Rewrite</button>
-      <button id="copyBtn">Copy</button>
     </div>
 
-    <div id="result">
-      <h3>Rewritten Email</h3>
-      <pre id="rewrittenEmail"></pre>
+    <!-- Rewrite Button -->
+    <div class="rewrite-button-group">
+      <div class="rectangle-5"></div>
+      <button id="rewriteBtn" class="rewrite-label">Rewrite</button>
     </div>
-  </div>
 
-  <script>
-    const rewriteBtn = document.querySelector("#rewriteBtn");
-    const copyBtn = document.querySelector("#copyBtn");
+    <!-- Copy Button -->
+    <div class="copy-button-group">
+      <div class="rectangle-4"></div>
+      <button id="copyBtn" class="copy-label">Copy</button>
+    </div>
 
-    rewriteBtn.addEventListener("click", async () => {
-      const email = document.querySelector("#emailInput").value.trim();
-      const tone = document.querySelector("#toneSelect").value;
-      const resultBox = document.querySelector("#rewrittenEmail");
-
-      if (!email) {
-        resultBox.textContent = "⚠ Please enter an email first.";
-        return;
-      }
-
-      // Show loading text
-      rewriteBtn.disabled = true;
-      rewriteBtn.textContent = "Rewriting...";
-      resultBox.textContent = "⏳ Rewriting your email...";
-
-      try {
-        const response = await fetch("/api/rewrite", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, tone }),
-        });
-
-        const data = await response.json();
-
-        if (data.rewritten_email) {
-          resultBox.textContent = data.rewritten_email;
-        } else {
-          resultBox.textContent = "⚠ " + (data.error || "Something went wrong.");
-        }
-      } catch (err) {
-        resultBox.textContent = "❌ Network error: " + err.message;
-      } finally {
-        rewriteBtn.disabled = false;
-        rewriteBtn.textContent = "Rewrite";
-      }
-    });
-
-    copyBtn.addEventListener("click", () => {
-      const text = document.querySelector("#rewrittenEmail").textContent;
-      if (!text) return alert("Nothing to copy!");
-      navigator.clipboard.writeText(text);
-      alert("✅ Copied to clipboard!");
-    });
-  </script>
-</body>
+    <script src="/static/index.js"></script>
+  </body>
 </html>
